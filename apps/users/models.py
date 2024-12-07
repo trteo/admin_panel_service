@@ -1,3 +1,13 @@
 from django.db import models
 
-# Create your models here.
+
+class ProductCategory(models.Model):
+    """
+    chat_id: int
+    is_subscribed: text
+
+    parent category id: FK(self)
+    """
+    ...
+
+
