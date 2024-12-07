@@ -162,6 +162,9 @@ cython_debug/
 .idea/
 .venv/
 /.python-version
-/apps/clients/migrations/__init__.py
-/apps/faq/migrations/__init__.py
-/apps/products/migrations/0001_initial.py
+/apps/clients/migrations/
+/apps/faq/migrations/
+/apps/mailing/migrations/
+/apps/orders/migrations/
+/apps/products/migrations/
+/apps/users/migrations/
