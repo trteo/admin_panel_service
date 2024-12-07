@@ -10,11 +10,14 @@ class Client(models.Model):
     def __str__(self):
         return f"Client chat id {self.chat_id}"
 
+    class Meta:
+        db_table = 'clients'
+
 
 class CartProducts(models.Model):
     amount = models.PositiveIntegerField()
-    chat = models.ForeignKey(
-        Client, to_field='chat_id', on_delete=models.CASCADE, related_name='user_cart'
+    client = models.ForeignKey(
+        Client, on_delete=models.CASCADE, related_name='cart'
     )
     product = models.ForeignKey(
         Product, on_delete=models.CASCADE, related_name='cart_items'
@@ -22,3 +25,6 @@ class CartProducts(models.Model):
 
     def __str__(self):
         return f"{self.amount} of {self.product.name}"
+
+    class Meta:
+        db_table = 'products_in_cart'

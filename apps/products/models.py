@@ -10,12 +10,14 @@ class ProductCategory(models.Model):
     def __str__(self):
         return self.name
 
+    class Meta:
+        db_table = 'product_categories'
+
 
 class Product(models.Model):
     name = models.CharField(max_length=255)
     description = models.TextField()
-    image = models.CharField(max_length=255)
-    # image = models.ImageField(upload_to='product_images/')
+    image = models.ImageField(upload_to='product_images/')
     price = models.DecimalField(max_digits=10, decimal_places=2)
     category = models.ForeignKey(
         ProductCategory, on_delete=models.CASCADE, related_name='products'
@@ -23,3 +25,6 @@ class Product(models.Model):
 
     def __str__(self):
         return self.name
+
+    class Meta:
+        db_table = 'products'

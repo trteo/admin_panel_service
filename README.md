@@ -19,8 +19,6 @@ source .venv/bin/activate
 
 Django commands
 ```commandline
-python manage.py runserver
-
 mkdir  apps/orders
 python manage.py startapp orders apps/orders
 
@@ -30,4 +28,6 @@ python manage.py flush
 python manage.py makemigrations
 python manage.py migrate
 python manage.py createsuperuser
+
+python manage.py runserver
 ```

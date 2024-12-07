@@ -16,6 +16,9 @@ class Order(models.Model):
     def __str__(self):
         return f"Order {self.id} for {self.client}"
 
+    class Meta:
+        db_table = 'orders'
+
 
 class OrderProducts(models.Model):
     amount = models.PositiveIntegerField()
@@ -29,3 +32,6 @@ class OrderProducts(models.Model):
 
     def __str__(self):
         return f"{self.amount} of {self.product.name}"
+
+    class Meta:
+        db_table = 'products_in_order'
