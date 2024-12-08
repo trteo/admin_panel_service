@@ -5,9 +5,9 @@ from apps.orders.models import OrderProducts, Order
 
 @admin.register(Order)
 class OrderAdmin(admin.ModelAdmin):
-    list_display = ('id', 'client', 'delivery_address', 'is_paid', 'date_created')
+    list_display = ('id', 'client', 'delivery_address', 'date_created')
     search_fields = ('id', 'client__chat_id', 'date_created')
-    list_filter = ('is_paid', 'date_created')
+    list_filter = ('date_created',)
 
 
 @admin.register(OrderProducts)

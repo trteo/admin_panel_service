@@ -30,4 +30,7 @@ python manage.py migrate
 python manage.py createsuperuser
 
 python manage.py runserver
+
+source ../admin_panel_service/.venv/bin/activate
+source ../tg_bot_service/.venv/bin/activate
 ```

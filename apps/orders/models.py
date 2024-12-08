@@ -5,8 +5,13 @@ from apps.clients.models import Client
 
 
 class Order(models.Model):
+    STATUS_CHOICES = [
+        ("registered", "Зарегистрирован"),
+        ("paid", "Оплачен"),
+        ("delivered", "Доставлен"),
+    ]
     delivery_address = models.CharField(max_length=255)
-    is_paid = models.BooleanField(default=False)
+    status = models.CharField(max_length=20, choices=STATUS_CHOICES)
     date_created = models.DateTimeField(auto_now_add=True)
 
     client = models.ForeignKey(
