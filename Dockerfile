@@ -5,3 +5,13 @@ WORKDIR /app
 COPY . .
 
 RUN pip install --no-cache-dir -r requirements.txt
+
+EXPOSE 8000
+
+ENV DJANGO_SUPERUSER_PASSWORD admin
+
+RUN python manage.py migrate
+RUN python manage.py createsuperuser --username=admin --email=admin@example.com --noinput
+RUN python fill_db.py
+
+ENTRYPOINT ["python", "manage.py", "runserver", "0.0.0.0:8000"]

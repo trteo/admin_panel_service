@@ -6,7 +6,7 @@
 --no-cache
 
 docker build --progress=plain  -t admin_panel . && \
-docker run -it admin_panel
+docker run -it  -p 8000:8000 admin_panel
 ```
 
 ### Run local
@@ -34,3 +34,13 @@ python manage.py runserver
 source ../admin_panel_service/.venv/bin/activate
 source ../tg_bot_service/.venv/bin/activate
 ```
+
+При запуске не в docker compose:
+в admin_settings/env:
+
+POSTGRES_HOST=gateway.docker.interna
+
+admin panel:
+host 0.0.0.0:8000
+login: admin
+password: admin
