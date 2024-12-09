@@ -11,7 +11,7 @@ class Settings(BaseSettings):
     DEV: bool = False
 
     POSTGRES_USER: str = ''
-    POSTGRES_PASSWORD: str = ''
+    POSTGRES_PASSWORD: SecretStr = ''
     POSTGRES_DATABASE: str = ''
     POSTGRES_HOST: str = ''
     POSTGRES_PORT: str = ''

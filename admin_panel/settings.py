@@ -88,7 +88,7 @@ DATABASES = {
         'ENGINE': 'django.db.backends.postgresql',
         'NAME': settings.POSTGRES_DATABASE,
         'USER': settings.POSTGRES_USER,
-        'PASSWORD': settings.POSTGRES_PASSWORD,
+        'PASSWORD': settings.POSTGRES_PASSWORD.get_secret_value(),
         'HOST': settings.POSTGRES_HOST,
         'PORT': settings.POSTGRES_PORT,
     }
