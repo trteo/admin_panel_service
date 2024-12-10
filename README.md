@@ -38,7 +38,7 @@ source ../tg_bot_service/.venv/bin/activate
 При запуске не в docker compose:
 в admin_settings/env:
 
-POSTGRES_HOST=gateway.docker.interna
+POSTGRES_HOST=gateway.docker.internal
 
 admin panel:
 host 0.0.0.0:8000
