@@ -3,7 +3,7 @@ from django.db import models
 
 class Mailing(models.Model):
     message_text = models.TextField()
-    message_image = models.ImageField(upload_to='mailing_images/', null=True, blank=True,)
+    message_image = models.ImageField(upload_to='static_content/mailing_images/', null=True, blank=True,)
     sending_date = models.DateTimeField()
     is_sent = models.BooleanField(default=False)
 

@@ -12,5 +12,5 @@ class UserAdmin(admin.ModelAdmin):
 
 @admin.register(CartProducts)
 class CartProductsAdmin(admin.ModelAdmin):
-    list_display = ('id', 'product', 'amount')
+    list_display = ('id', 'product', 'amount', 'client')
     search_fields = ('product__name',)

@@ -19,7 +19,8 @@ from apps.clients.models import Client, CartProducts
 from apps.orders.models import Order, OrderProducts
 from apps.faq.models import FAQ
 from apps.mailing.models import Mailing
-
+from PIL import Image
+import random
 
 # Initialize Faker for generating random data
 faker = Faker()
@@ -119,7 +120,7 @@ def create_products_and_client_cart_orders():
 
 create_products_and_client_cart_orders()
 
-
+img_prefix = 'random_color_image_'
 def create_other():
     # Create FAQs
     for i in range(num_faq):
@@ -134,10 +135,31 @@ def create_other():
             message_text=faker.text(),
             sending_date=datetime.now() + timedelta(days=i),
             is_sent=random.choice([True, False]),
-            message_image=f"mailing_images/random_color_image_{random.randint(0, 10)}.png"
+            message_image=f"static_content/mailing_images/{img_prefix}{random.randint(0, 10)}.png"
         )
 
     print("Data generation with all required fields populated is complete!")
 
 
 create_other()
+
+
+def create_random_color_image(width=128, height=256, output_path="random_color_image.png"):
+    # Generate a random color (R, G, B)
+    random_color = (random.randint(0, 255), random.randint(0, 255), random.randint(0, 255))
+
+    # Create an image with the given dimensions and fill it with the random color
+    img = Image.new("RGB", (width, height), random_color)
+
+    # Save the image to the specified output path
+    img.save(f'static_content/mailing_images/{output_path}')
+    print(f"Image created and saved as '{output_path}' with color {random_color}")
+
+
+def create_random_color_images():
+    for i in range(10):
+        # Create and save the image
+        create_random_color_image(width=180, height=320, output_path=f"{img_prefix}{i}.png")
+
+
+create_random_color_images()
